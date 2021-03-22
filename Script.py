@@ -12,11 +12,11 @@ def html_page(page_name):
     return render_template(page_name)
 
 def write_to_csv(data):
-    with open('database.csv', mode='a') as database:
+    with open('database.csv', newline='', mode='a') as database:
       name = data['name']
       email = data['email']
       message = data['message']
-      csv_writer = csv.writer(database, delimiter=' ', newline='', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+      csv_writer = csv.writer(database, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
       csv_writer.writerow([name,email,message])
 
 
